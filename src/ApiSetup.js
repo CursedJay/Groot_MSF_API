@@ -6,7 +6,7 @@
 
 // Must match the name of your project (your library) and cannot contain spaces.
 const CLIENT_NAME = 'GrootApi';
-const CLIENT_SCOPES = ['m3p.f.pr.inv', 'offline'];
+const CLIENT_SCOPES = ['m3p.f.pr.pro', 'm3p.f.pr.ros', 'm3p.f.pr.inv', 'offline'];
 const CLIENT_ID = 'f107a887-b23d-46bd-9012-53f857645a58';
 const CLIENT_SECRET = PropertiesService.getScriptProperties().getProperty('CLIENT_SECRET');
 // B = TokenBook Logs, C = Connection Logs, H = Handled Exception Logs
