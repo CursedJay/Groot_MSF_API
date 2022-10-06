@@ -1,0 +1,14 @@
+{
+  "name": "grootapi",
+  "version": "1.0.0",
+  "description": "MSF api for groot",
+  "main": "main.js",
+  "author": "JayG64#7990",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.24.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "2.7.1"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "timeZone": "America/Toronto",
+  "dependencies": {
+    "libraries": [
+      {
+        "userSymbol": "EnrollASheet",
+        "version": "1",
+        "libraryId": "11s8Y6pndL_5WNAJnKXjSBbbWGhQoBnu97Xoksk2L7J_pw3LcGdpDBBGM"
+      }
+    ]
+  },
+  "exceptionLogging": "STACKDRIVER",
+  "runtimeVersion": "V8"
+}
