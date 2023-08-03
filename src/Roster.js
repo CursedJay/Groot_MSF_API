@@ -33,7 +33,7 @@ function getRoster(since = 'fresh') {
 
 /** Get a list of the playable characters */
 function getCharacterList() {
-  const response = MSF.callApi(`/player/v1/characters?status=playable&charInfo=none`);
+  const response = MSF.callApi(`/game/v1/characters?status=playable&charInfo=none`);
 
   if (!response) {
     return false;
@@ -46,7 +46,9 @@ function getCharacterList() {
       const responseText = response.getContentText();
       const result = JSON.parse(responseText);
 
-      return result;
+      const characterList = result.data.map(({ id }) => id);
+
+      return characterList;
     case 344:
       return false;
     default:
