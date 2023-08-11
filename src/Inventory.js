@@ -8,7 +8,6 @@ function getGearInventory(since = 'fresh') {
   const response = MSF.callApi(`/player/v1/inventory?itemType=GEAR&since=${since}`);
 
   if (!response) {
-    //STATUS_CELL.setValue('waiting for access');
     return false;
   }
 
@@ -22,26 +21,21 @@ function getGearInventory(since = 'fresh') {
       inventory.gear = {};
       inventory.since = result?.meta?.asOf ?? '';
 
-      //INVENTORY_VERSION_CELL.setValue(result?.meta?.asOf || '');
-      //STATUS_CELL.setValue('');
-
       for (let i = 0; i < result?.data.length; i++) {
         const { item, quantity } = result?.data[i];
         inventory.gear[item] = quantity || 0;
       }
       return inventory;
     case 344:
-      //STATUS_CELL.setValue('UNCHANGED');
       return false;
     default:
-      //STATUS_CELL.setValue(`Error: code ${responseCode}`);
       return false;
   }
 }
 
 // Get inventory by type of item. Can only get all types or by single type. Cannot get by multiple types
 function getInventoryByType(itemType = undefined, since = 'fresh') {
-  let inventoryUrl = `/player/v1/inventory?since=${since}`
+  let inventoryUrl = `/player/v1/inventory?since=${since}`;
 
   if (itemType !== undefined) {
     inventoryUrl += `&itemType=${itemType}`;
