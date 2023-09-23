@@ -1,10 +1,4 @@
-//TODO add param itemType
 function getGearInventory(since = 'fresh') {
-  //const INVENTORY_VERSION_CELL = getNamedRange('Inventory_Since');
-  //const STATUS_CELL = getNamedRange('Inventory_Status');
-
-  //STATUS_CELL.setValue('🔴🔴🔴');
-
   const response = MSF.callApi(`/player/v1/inventory?itemType=GEAR&since=${since}`);
 
   if (!response) {
@@ -37,7 +31,7 @@ function getGearInventory(since = 'fresh') {
 function getInventoryByType(itemType = undefined, since = 'fresh') {
   let inventoryUrl = `/player/v1/inventory?since=${since}`;
 
-  if (itemType !== undefined) {
+  if (itemType) {
     inventoryUrl += `&itemType=${itemType}`;
   }
 
@@ -53,14 +47,53 @@ function getInventoryByType(itemType = undefined, since = 'fresh') {
     case 200:
       const responseText = response.getContentText();
       const result = JSON.parse(responseText);
-      const inventory = {};
-      inventory.items = {};
-      inventory.since = result?.meta?.asOf ?? '';
 
-      for (let i = 0; i < result?.data.length; i++) {
-        const { item, quantity } = result?.data[i];
-        inventory.items[item] = quantity || 0;
+      const inventory = {
+        items: {}, // TODO: Remove this property after all sheets are upgraded to latest version that gets everything
+        gear: {},
+        isoitem: {},
+        shard: {},
+        rs: {},
+        costume: {},
+        consumable: {},
+        ability_material: {},
+        since: result?.meta?.asOf ?? ''
+      };
+
+      if (result?.data?.length < 1) {
+        return inventory;
       }
+
+      for (const element of result.data) {
+        const { item, quantity } = element;
+        inventory.items[item] = quantity || 0;
+
+        const prefix = item.substring(0, item.indexOf('_'));
+        switch (prefix) {
+          case 'GEAR':
+            inventory.gear[item] = quantity || 0;
+            break;
+          case 'ISOITEM':
+            inventory.isoitem[item] = quantity || 0;
+            break;
+          case 'SHARD':
+            inventory.shard[item] = quantity || 0;
+            break;
+          case 'RS':
+            inventory.rs[item] = quantity || 0;
+            break;
+          case 'COSTUME':
+            inventory.costume[item] = quantity || 0;
+            break;
+          case 'CONSUMABLE':
+            inventory.consumable[item] = quantity || 0;
+            break;
+          case 'ABILITY':
+            inventory.ability_material[item] = quantity || 0;
+            break;
+        }
+      }
+
       return inventory;
     case 344:
       return false;

@@ -17,11 +17,11 @@ const ss = SpreadsheetApp.getActiveSpreadsheet();
 const MSF = init();
 
 // IMPORTANT: This line exposes the function to handle the OAuth callback. Don't change it.
-var EnrollASheetCallback = MSF.EnrollASheetCallback;
+const EnrollASheetCallback = MSF.EnrollASheetCallback;
 
 // RECOMMENDED: This exposes functions to let the player logout without having to delete their sheet.
-var forgetLogin = MSF.forgetLogin;
-var debugForgetAccessToken = MSF.debugForgetAccessToken;
+const forgetLogin = MSF.forgetLogin;
+const debugForgetAccessToken = MSF.debugForgetAccessToken;
 
 // DISCOURAGED: Exposing this function makes it possible for others to make calls under your client secret.
 // var callApi = MSF.callApi; // better NOT to do this; instead only use MSF.callApi from your library project.
