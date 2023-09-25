@@ -13,11 +13,11 @@ const CLIENT_SECRET = PropertiesService.getScriptProperties().getProperty('CLIEN
 const OVERRIDE_DEBUG_LOGS = 'BCH';
 
 // Initialize the MSF API.
-const ss = SpreadsheetApp.getActiveSpreadsheet();
-const MSF = init();
+var ss = SpreadsheetApp.getActiveSpreadsheet();
+var MSF = init();
 
 // IMPORTANT: This line exposes the function to handle the OAuth callback. Don't change it.
-const EnrollASheetCallback = MSF.EnrollASheetCallback;
+var EnrollASheetCallback = MSF.EnrollASheetCallback;
 
 // RECOMMENDED: This exposes functions to let the player logout without having to delete their sheet.
 const forgetLogin = MSF.forgetLogin;
