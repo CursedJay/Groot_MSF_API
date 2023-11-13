@@ -1,7 +1,7 @@
 function getRoster(since = 'fresh') {
   const ROSTER_VERSION_CELL = getNamedRange('Roster_Since');
 
-  const response = MSF.callApi(`/player/v1/roster?since=${since}`);
+  const response = callApi_(`/player/v1/roster?since=${since}`);
 
   if (!response) {
     return false;

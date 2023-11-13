@@ -1,5 +1,5 @@
 function getProfile() {
-  const response = MSF.callApi('/player/v1/card');
+  const response = callApi_('/player/v1/card');
 
   if (!response) {
     return false;

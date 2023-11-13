@@ -1,7 +1,7 @@
 function getLocalizationFile(fileName) {
-  let fileUrl = `/game/v1/localizations/${fileName}`;
+  const fileUrl = `/game/v1/localizations/${fileName}`;
 
-  const response = MSF.callApi(fileUrl);
+  const response = callApi_(fileUrl);
 
   if (!response) {
     return false;

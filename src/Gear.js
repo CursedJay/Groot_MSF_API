@@ -2,7 +2,7 @@
 function getGearByCharacterId(charId) {
   const inventoryUrl = `/game/v1/characters/${charId}?charInfo=false&costumes=none&abilityKits=none&gearTiers=full&pieceInfo=none&pieceFlatCost=full&subPieceInfo=none`;
 
-  const response = MSF.callApi(inventoryUrl);
+  const response = callApi_(inventoryUrl);
 
   if (!response) {
     return false;

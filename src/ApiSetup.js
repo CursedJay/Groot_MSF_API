@@ -11,6 +11,9 @@ const CLIENT_ID = 'f107a887-b23d-46bd-9012-53f857645a58';
 const CLIENT_SECRET = PropertiesService.getScriptProperties().getProperty('CLIENT_SECRET');
 // B = TokenBook Logs, C = Connection Logs, H = Handled Exception Logs
 const OVERRIDE_DEBUG_LOGS = 'BCH';
+const API_KEY = '17wMKJLRxy3pYDCKG5ciP7VSU45OVumB2biCzzgw'; // As defined in https://developer.marvelstrikeforce.com/beta/index.html
+const AUTH_URL = 'https://hydra-public.prod.m3.scopelypv.com/oauth2/token';
+const API_BASE = 'https://api.marvelstrikeforce.com';
 
 // Initialize the MSF API.
 var ss = SpreadsheetApp.getActiveSpreadsheet();

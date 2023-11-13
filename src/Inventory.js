@@ -1,5 +1,5 @@
 function getGearInventory(since = 'fresh') {
-  const response = MSF.callApi(`/player/v1/inventory?itemType=GEAR&since=${since}`);
+  const response = callApi_(`/player/v1/inventory?itemType=GEAR&since=${since}`);
 
   if (!response) {
     return false;
@@ -35,7 +35,7 @@ function getInventoryByType(itemType = undefined, since = 'fresh') {
     inventoryUrl += `&itemType=${itemType}`;
   }
 
-  const response = MSF.callApi(inventoryUrl);
+  const response = callApi_(inventoryUrl);
 
   if (!response) {
     return false;
@@ -103,7 +103,7 @@ function getInventoryByType(itemType = undefined, since = 'fresh') {
 }
 
 function getFullInventory(since = 'fresh') {
-  const response = MSF.callApi(`/player/v1/inventory?itemFormat=object&since=${since}`);
+  const response = callApi_(`/player/v1/inventory?itemFormat=object&since=${since}`);
 
   if (!response) {
     //STATUS_CELL.setValue('waiting for access');
