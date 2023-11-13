@@ -20,8 +20,8 @@ var MSF = init();
 var EnrollASheetCallback = MSF.EnrollASheetCallback;
 
 // RECOMMENDED: This exposes functions to let the player logout without having to delete their sheet.
-const forgetLogin = MSF.forgetLogin;
-const debugForgetAccessToken = MSF.debugForgetAccessToken;
+var forgetLogin = MSF.forgetLogin;
+var debugForgetAccessToken = MSF.debugForgetAccessToken;
 
 // DISCOURAGED: Exposing this function makes it possible for others to make calls under your client secret.
 // var callApi = MSF.callApi; // better NOT to do this; instead only use MSF.callApi from your library project.
