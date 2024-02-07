@@ -9,13 +9,14 @@ function getCharacterList() {
   const responseCode = response.getResponseCode();
 
   switch (responseCode) {
-    case 200:
+    case 200: {
       const responseText = response.getContentText();
       const result = JSON.parse(responseText);
 
       const characterList = result.data.map(({ id }) => id);
 
       return characterList;
+    }
     case 344:
       return false;
     default:

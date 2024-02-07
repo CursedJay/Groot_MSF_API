@@ -8,7 +8,7 @@ function getGearInventory(since = 'fresh') {
   const responseCode = response.getResponseCode();
 
   switch (responseCode) {
-    case 200:
+    case 200: {
       const responseText = response.getContentText();
       const result = JSON.parse(responseText);
       const inventory = {};
@@ -20,6 +20,7 @@ function getGearInventory(since = 'fresh') {
         inventory.gear[item] = quantity || 0;
       }
       return inventory;
+    }
     case 344:
       return false;
     default:
@@ -44,7 +45,7 @@ function getInventoryByType(itemType = undefined, since = 'fresh') {
   const responseCode = response.getResponseCode();
 
   switch (responseCode) {
-    case 200:
+    case 200: {
       const responseText = response.getContentText();
       const result = JSON.parse(responseText);
 
@@ -95,6 +96,7 @@ function getInventoryByType(itemType = undefined, since = 'fresh') {
       }
 
       return inventory;
+    }
     case 344:
       return false;
     default:
@@ -113,10 +115,11 @@ function getFullInventory(since = 'fresh') {
   const responseCode = response.getResponseCode();
 
   switch (responseCode) {
-    case 200:
+    case 200: {
       const responseText = response.getContentText();
       const result = JSON.parse(responseText);
       return result;
+    }
     case 344:
       //STATUS_CELL.setValue('UNCHANGED');
       return false;

@@ -10,7 +10,7 @@ function getRoster(since = 'fresh') {
   const responseCode = response.getResponseCode();
 
   switch (responseCode) {
-    case 200:
+    case 200: {
       const responseText = response.getContentText();
       const result = JSON.parse(responseText);
       //const roster = {};
@@ -20,6 +20,7 @@ function getRoster(since = 'fresh') {
       //  inventory[item] = quantity || 0;
       //}
       return result;
+    }
     case 344:
       return false;
     default:

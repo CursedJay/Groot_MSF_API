@@ -11,10 +11,11 @@ function getGearByCharacterId(charId) {
   const responseCode = response.getResponseCode();
 
   switch (responseCode) {
-    case 200:
+    case 200: {
       const responseText = response.getContentText();
       const result = JSON.parse(responseText);
       return result.data;
+    }
     case 344:
       return false;
     default:
