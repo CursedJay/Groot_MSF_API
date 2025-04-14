@@ -1,3 +1,4 @@
+/* eslint-disable no-var */
 // This directive tells Apps Script not to ask the player for permissions to all their google sheets.
 // Leave it here.
 /**
@@ -28,7 +29,6 @@ var debugForgetAccessToken = MSF.debugForgetAccessToken;
 
 // DISCOURAGED: Exposing this function makes it possible for others to make calls under your client secret.
 // var callApi = MSF.callApi; // better NOT to do this; instead only use MSF.callApi from your library project.
-
 function init() {
   const privacy = 'Privacy';
   let hidden = false;

@@ -16,7 +16,7 @@ function getGearInventory(since = 'fresh') {
       inventory.since = result?.meta?.asOf ?? '';
 
       for (let i = 0; i < result?.data.length; i++) {
-        const { item, quantity } = result?.data[i];
+        const { item, quantity } = result?.data[i] || {};
         inventory.gear[item] = quantity || 0;
       }
       return inventory;
